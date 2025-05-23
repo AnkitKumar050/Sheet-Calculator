@@ -35,32 +35,40 @@ function App() {
   };
 
   return (
-    <div style={{ padding: 20 }}>
+    <div className="container">
       <h1>Sheet Calculator</h1>
-      <div>
-        <label>Length (cm): </label>
-        <input type="number" value={length} onChange={e => setLength(e.target.value)} />
+
+      <div className="section">
+        <h2>Enter Dimensions</h2>
+        <label>Length (cm):
+          <input type="number" value={length} onChange={e => setLength(e.target.value)} />
+        </label>
+        <label>Height (cm):
+          <input type="number" value={height} onChange={e => setHeight(e.target.value)} />
+        </label>
+        <label>No. of Units:
+          <input type="number" value={units} onChange={e => setUnits(e.target.value)} />
+        </label>
       </div>
-      <div>
-        <label>Height (cm): </label>
-        <input type="number" value={height} onChange={e => setHeight(e.target.value)} />
-      </div>
-      <div>
-        <label>No. of Units: </label>
-        <input type="number" value={units} onChange={e => setUnits(e.target.value)} />
-      </div>
-      <div>
+
+      <div className="section">
+        <h2>Options</h2>
         <label>
           <input type="checkbox" checked={includeLabor} onChange={() => setIncludeLabor(!includeLabor)} />
           Include Labor Cost (120 AED)
         </label>
       </div>
-      <div style={{ marginTop: 20 }}>
+
+      <div className="section">
+        <h2>Results</h2>
         <p><strong>Sheets Required:</strong> {sheetsRequired}</p>
         <p><strong>Boards Cost:</strong> {boardsCost} AED</p>
         <p><strong>Labor Cost:</strong> {laborCost} AED</p>
         <p><strong>Transport Cost:</strong> {TRANSPORT_COST} AED</p>
         <p><strong>Total Cost:</strong> {totalCost} AED</p>
+      </div>
+
+      <div className="actions">
         <button onClick={exportPDF}>Download PDF</button>
       </div>
     </div>
